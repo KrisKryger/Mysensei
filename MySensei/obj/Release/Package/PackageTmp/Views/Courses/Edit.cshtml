@@ -1,0 +1,57 @@
+﻿@model MySensei.Models.Course
+@{
+    ViewBag.Title = "Rediger Kursus";
+}
+<div class="formDiv">
+    <h1>Rediger Kursus</h1>
+    @Html.ValidationSummary(false)
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <label>Titel</label><br />
+            @Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "formInput" } })
+        </div>
+        <div>
+            <label>Beskrivelse</label><br />
+            @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "inputTextBox" } })
+        </div>
+        <div>
+            <label>Års Erfaring</label><br />
+            @Html.EditorFor(x => x.Experience, new { htmlAttributes = new { @class = "formInput" } })
+        </div>
+        <div>
+            <label>Status</label><br />
+            @Html.DropDownList("CourseStatusId", (SelectList)ViewBag.CourseStatusId, null, new { @class = "formInput" })
+        </div>
+        <!--<table>
+            <tr>
+                at{
+                    int cnt = 0;
+                    List<MySensei.ViewModels.AssignedTagData> tags = ViewBag.Tags;
+                    foreach (var tag in tags)
+                    {
+                        if (cnt++ % 3 == 0)
+                        {
+                            at:
+                        </tr>
+                        at:
+                        <tr>
+                    }
+                        at:
+                        <td style="padding:0 12px 0 0">
+                            <input type="checkbox"
+                                   name="selectedTags"
+                                   value="attag.TagId"
+                                   at(Html.Raw(tag.Assigned ? "checked=\"checked\"" : "")) />
+                            attag.Name
+                        </td>
+                    }
+                }
+            </tr>
+        </table> -->
+
+        <button type="submit" class="orange-btn">Gem</button>
+        <p>eller</p> @Html.ActionLink("Gå tilbage til profil", "Index", "Account", null, new { @class = "goBackLink" })
+    }
+</div>

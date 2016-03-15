@@ -1,0 +1,23 @@
+﻿@using MySensei.Models
+@model IEnumerable<Course>
+@{
+    ViewBag.Title = "Kurser";
+}
+
+<h1>Kurser</h1>
+<div class="course-list-container">
+    @ViewBag.SQ
+    
+        @if (Model.Count() == 0)
+        {
+            <p>No Courses</p>
+        }
+        else
+        {
+            foreach (Course course in Model)
+            {
+                @Html.Action("GenerateCoursePreview", "Utility", new { course = course });
+            }
+        }
+</div>
+

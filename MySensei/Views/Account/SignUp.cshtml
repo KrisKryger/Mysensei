@@ -1,0 +1,74 @@
+﻿@model MySensei.Models.CreateModel
+@{ ViewBag.Title = "Opret bruger";}
+<div class="contentContainer">
+    <h1>Opret bruger</h1>
+    <div class="formDiv">
+
+        @Html.ValidationSummary()
+        @using (Html.BeginForm(false))
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                <label>Email</label><br/>
+                @Html.TextBoxFor(x => x.Email, new { @class = "formInput" })
+            </div>
+            <div>
+                <label>Password</label><br />
+                @Html.PasswordFor(x => x.Password, new { @class = "formInput" })
+            </div>
+            <div class="inputSpaceBottom">
+                <label>Gentag Password</label><br />
+                @Html.PasswordFor(x => x.RepeatPassword, new { @class = "formInput" })
+            </div>
+            <div class="inputSpace">
+                <label>Fulde navn</label><br />
+                @Html.TextBoxFor(x => x.UserName, new { @class = "formInput" })
+            </div>
+            <div>
+                <label>Adresse</label><br />
+                @Html.TextBoxFor(x => x.Street, new { @class = "formInput" })
+            </div>
+            <div class="formInputSmallWrapper inputSpaceBottom">
+                <div class="formInputSmall">
+                    <label>Postnummer</label><br />
+                    @Html.TextBoxFor(x => x.Zipcode, new { @class = "formInput" })
+                </div>
+                <div class="formInputSmall formInputSmall1">
+                    <label>By</label><br />
+                    @Html.TextBoxFor(x => x.City, new { @class = "formInput" })
+                </div>
+            </div>
+            <div class="inputSpace">
+                <label>Fødselsdag</label><br />
+                @Html.EditorFor(x => x.BirthDate, new { @class = "formInput" })
+            </div>
+            <div>
+                <label>Telefonnummer</label><br />
+                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "formInput" })
+            </div>
+            <p>
+                Ved at bruge MySensei.dk, eller benytte en anden tjeneste som MySensei
+
+                udbyder, accepterer du at være bundet af betingelserne på denne side. Hvis du ønsker at
+
+                bruge hjemmesiden eller oprette en profil, skal du læse, overholde og acceptere
+
+                nedenstående betingelser.
+
+                Denne side fungerer som en elektronisk kontrakt, der indeholder de juridisk bindende
+
+                betingelser for din brug af Hjemmesiden, og de betingelser der foreligger, når du opretter en
+
+                profil på MySensei.dk.@Html.ActionLink(" Læs mere her", "Terms", "About",null, new { @class = "goBackLink" })<br/>
+                
+                <input type="checkbox" name="termsAccepted" value="true">Jeg accepterer
+                
+            </p>
+            <button type="submit" class="orange-btn">Opret</button>
+            <p>eller</p> @Html.ActionLink("Gå tilbage til forsiden", "Index", null, new { @class = "goBackLink" })
+        }
+    </div>
+    <div class="formDiv">
+       
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model MySensei.Models.CreateModel
+@{ ViewBag.Title = "Opret bruger";}
+<h1>Opret bruger</h1>
+<div class="formDiv">
+    
+    @Html.ValidationSummary()
+    @using (Html.BeginForm(false))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <label>Email</label>
+            @Html.TextBoxFor(x => x.Email, new { @class = "formInput" })
+        </div>
+        <div>
+            <label>Password</label><br />
+            @Html.PasswordFor(x => x.Password, new { @class = "formInput" })
+        </div>
+        <div>
+            <label>Gentag Password</label><br />
+            @Html.PasswordFor(x => x.RepeatPassword, new { @class = "formInput" })
+        </div>
+        <div>
+            <label>Fødselsdag</label><br />
+            @Html.EditorFor(x => x.BirthDate, new { @class = "formInput" })
+        </div>
+        <div>
+            <label>Fulde navn</label><br />
+            @Html.TextBoxFor(x => x.UserName, new { @class = "formInput" })
+        </div>
+        <div>
+            <label>Gadenavn og vejnummer</label><br />
+            @Html.TextBoxFor(x => x.Street, new { @class = "formInput" })
+        </div>
+        <div class="formInputSmallWrapper">
+            <div class="formInputSmall">
+                <label>Postnummer</label><br />
+                @Html.TextBoxFor(x => x.Zipcode, new { @class = "formInput" })
+            </div>
+            <div class="formInputSmall">
+                <label>By</label><br />
+                @Html.TextBoxFor(x => x.City, new { @class = "formInput" })
+            </div>
+        </div>
+        <div>
+            <label>Telefonnummer</label><br />
+            @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "formInput" })
+        </div>
+        <button type="submit" class="orange-btn">Create</button>
+        <p>eller</p> @Html.ActionLink("Gå tilbage", "Index", null, new { @class = "goBackLink" })
+    }
+    </div>

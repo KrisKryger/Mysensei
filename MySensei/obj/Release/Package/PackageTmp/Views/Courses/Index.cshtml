@@ -1,0 +1,40 @@
+﻿@using MySensei.Models
+@model IEnumerable<Course>
+@{
+    ViewBag.Title = "Kurser";
+}
+
+<h1>Dine Kurser</h1>
+<div>
+    <table>
+        <tr><th>Beskrivelse</th><th>Års Erfaring</th><th>Status</th><th></th></tr>
+        @if (Model.Count() == 0)
+        {
+            <tr><td colspan="4" class="text-center">Der er ingen kurse endnu</td></tr>
+        }
+        else
+        {
+            foreach (Course course in Model)
+            {
+                <tr>
+                    <td class="big-td">@course.Title</td>
+                    <td class="small-td">@course.Experience</td>
+                    <td class="small-td">@course.CourseStatus.Name</td>
+                    <td class="big-td">
+                        @using (Html.BeginForm("Delete", "Courses", new { id = course.CourseId }))
+                        {
+                            @Html.ActionLink("Rediger", "Edit", new { id = course.CourseId }, new { @class = "edit-btn" })
+                            <button class="edit-btn"
+                                    type="submit">
+                                Slet
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+<div class="buttonDiv">
+    @Html.ActionLink("Opret Kursus", "Create", null, new { @class = "orange-btn" })
+</div>

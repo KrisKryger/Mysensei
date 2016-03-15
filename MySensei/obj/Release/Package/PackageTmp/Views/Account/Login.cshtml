@@ -1,0 +1,20 @@
+﻿@model MySensei.Models.LoginModel
+@{ ViewBag.Title = "Login";}
+<div class="formDiv">
+    <h1>Log Ind</h1>
+    @Html.ValidationSummary()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+        <div>
+            <label>Email</label><br />
+            @Html.TextBoxFor(x => x.UserName, new { @class = "formInput", autofocus = true})
+        </div>
+        <div>
+            <label>Adgangskode</label><br />
+            @Html.PasswordFor(x => x.Password, new { @class = "formInput" })
+        </div>
+        <button class="orange-btn" type="submit">Log Ind</button>
+    }
+</div>

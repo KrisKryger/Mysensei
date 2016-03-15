@@ -1,0 +1,19 @@
+﻿@model MySensei.Models.Course
+
+@if (ViewBag.LoggedIn && !ViewBag.MadeByUser && !ViewBag.IsClosed)
+{
+    if (ViewBag.IsInCourse)
+    {
+        using (Html.BeginForm("Leave", "Courses", new { id = Model.CourseId }))
+        {
+            <button class="edit-btn"type="submit">Afmeld</button>
+        }
+    }
+    else
+    {
+        using (Html.BeginForm("Join", "Courses", new { id = Model.CourseId }))
+        {
+            <button class="edit-btn" type="submit">Tilmeld</button>
+        }
+    }
+}

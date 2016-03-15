@@ -1,0 +1,8 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <a href="#" class="smartAuthWidget profileToggle"><img class="user-icon" src="~/Content/images/user-icon.png" alt="User Icon" /><img class="user-icon-orange" src="~/Content/images/user-icon-orange.png" alt="User Icon" /></a>
+}
+else
+{
+    @Html.ActionLink("Log ind", "Login", "Account", null, new { @class = "smartAuthWidget login-btn" })
+}

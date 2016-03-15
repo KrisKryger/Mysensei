@@ -1,0 +1,19 @@
+﻿add-migration coursetable;
+update-database;
+add-migration one-to-many-course-user-table;
+AlterColumn("dbo.Courses", "AppUserId", c => c.String(nullable: false, maxLength: 128));
+update-database
+
+
+
+Extra
+
+CREATE PROCEDURE [dbo].GetRandomCourses
+	@coursesToReturn int
+AS
+	SET NOCOUNT ON;
+	SELECT TOP(@coursesToReturn) *
+	FROM Courses
+	WHERE CourseStatusId = 1
+	OR CourseStatusId = 2
+	ORDER BY NEWID()

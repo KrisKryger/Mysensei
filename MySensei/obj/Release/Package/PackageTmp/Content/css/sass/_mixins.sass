@@ -1,0 +1,42 @@
+﻿=standard-button($padding, $font-size, $background-color)
+	padding: $padding
+	font-family: $main-font
+	font-size: $font-size
+	font-weight: $main-font-weight
+	color: $white
+	text-align: center
+	text-transform: uppercase
+	background-color: $background-color
+	border: none
+	cursor: pointer
+	&:visited
+		color: $white
+	display: inline-block
+
+=white-border-button($padding, $font-size, $text-transform)
+	padding: $padding
+	font-size: $font-size
+	color: $white
+	text-align: center
+	text-transform: $text-transform
+	border: 2px solid $white
+	&:hover
+		color: $black
+		background-color: $white
+
+=transition-default()
+	transition: 4s opacity
+	-moz-transition: 4s opacity
+	-o-transition: 4s opacity
+	-webkit-transition: 4s opacity
+
+=menu-overlay($opacity)
+	padding-top: 3em
+	text-align: center
+	display: block
+	opacity: $opacity
+	z-index: 5
+	transition: 4s opacity
+	-moz-transition: 4s opacity
+	-o-transition: 4s opacity
+	-webkit-transition: 4s opacity

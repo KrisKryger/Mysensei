@@ -1,0 +1,21 @@
+﻿@model MySensei.Models.Course
+
+@{
+    ViewBag.Title = "Slet kursus";
+}
+
+<h1>Slet Kursus</h1>
+<div class="contentContainer">
+    <div class="formDiv">
+        <h2>Er du sikker på at du vil slette: @Model.Title</h2>
+        @using (Html.BeginForm("Delete", "Courses", new { id = Model.CourseId }))
+        {
+            @Html.AntiForgeryToken()
+            <button class="orange-btn"
+                    type="submit">
+                Slet
+            </button>
+            <p>eller</p> @Html.ActionLink("Gå tilbage til profil", "", "Account", null, new { @class = "goBackLink" })
+        }
+    </div>
+</div>

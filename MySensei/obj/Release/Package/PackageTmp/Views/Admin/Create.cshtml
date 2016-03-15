@@ -1,0 +1,43 @@
+﻿@model MySensei.Models.CreateModel
+@{ ViewBag.Title = "Create User";}
+
+<h1>Create User</h1>
+@Html.ValidationSummary(false)
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    <div>
+        <label>Phone</label>
+        @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "" })
+    </div>
+    <div>
+        <label>Vej og nr.</label>
+        @Html.TextBoxFor(x => x.Street, new { @class = "" })
+    </div>    
+    <div>
+        <label>Postnummer</label>
+        @Html.TextBoxFor(x => x.Zipcode, new { @class = "" })
+    </div>    
+    <div>
+        <label>By</label>
+        @Html.TextBoxFor(x => x.City, new { @class = "" })
+    </div>
+    <div>
+        <label>Birthdate</label>
+        @Html.TextBoxFor(x => x.BirthDate, new { @class = "" })
+    </div>
+    <div>
+        <label>User name</label>
+        @Html.TextBoxFor(x => x.UserName, new { @class = "" })
+    </div>
+    <div >
+        <label>Email</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "" })
+    </div>
+    <div>
+        <label>Password</label>
+        @Html.PasswordFor(x => x.Password, new { @class = "" })
+    </div>
+    <button type="submit" class="btn">Create</button>
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn" })
+}

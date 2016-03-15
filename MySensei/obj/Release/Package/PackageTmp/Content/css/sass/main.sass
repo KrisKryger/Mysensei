@@ -1,0 +1,509 @@
+﻿@import "reset"
+@import "_variables"
+@import "_mixins"
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700)
+@font-face
+	font-family: FingerPaint
+	src: url(../fonts/Logo_Font_FingerpaintRegular.ttf)
+
+
+// MOBIL STYLE
+
+// GENERAL
+
+body
+	background-color: $white
+	font-family: $main-font
+	font-size: 1.1em
+	font-weight: $main-font-weight
+	line-height: $main-line-height
+
+header
+	width: 100%
+	height: 50px
+	position: fixed
+	background-color: $turquoise
+	z-index: 2
+	 
+	.logo
+		img
+			max-width: 100%
+			width: 180px
+			margin: 10px 0 0 10px
+
+	.navigation
+		.search-icon
+			max-width: 100%
+			width: 30px
+			top: 10px
+			right: 70px
+			position: absolute
+			display: none
+
+		.login-btn
+			top: 7px
+			right: 120px
+			position: absolute
+			display: none
+			+white-border-button(4px 10px, 1.2em, capitalize)
+
+		.smartAuthWidget
+			.user-icon
+				max-width: 100%
+				width: 30px
+				top: 10px
+				right: 70px
+				position: absolute
+				z-index: 16
+
+			.user-icon-toggled
+				display: none
+
+			.user-icon-orange
+				@extend .user-icon
+				display: none
+
+			.user-icon-orange-toggled
+				display: block
+
+footer
+	width: 100%
+	padding: 10px 0
+	display: inline-block
+	position: relative
+	color: $white
+	text-align: center
+	background-color: $turquoise
+
+h1
+	font-family: $head-font
+	font-weight: $header-font-weight
+	font-size: $header-font-size
+	line-height: 1.5em
+	margin: 50px 0
+	text-align: center
+	text-transform: uppercase
+
+h2
+	font-family: $head-font
+	text-transform: uppercase
+	font-size: 1.5em
+	color: $black
+	line-height: 1.5em
+
+
+// NAVIGATION
+
+nav
+	width: 100%
+	height: 70%
+	top: 50px
+	right: 0
+	position: absolute
+	display: none
+	opacity: 0
+	z-index: 16
+	+transition-default
+
+	ul
+		li
+			padding: 40px 0
+			font-size: 30px
+		li:hover
+			background-color: $orange
+
+.navBG
+	width: 100%
+	height: 100%
+	top: 50px
+	right: 0
+	position: absolute
+	display: none
+	opacity: 0
+	background-color: $white
+	+transition-default
+
+.navToggled
+	+menu-overlay(1)
+
+.navToggledBG
+	+menu-overlay(0.9)
+
+.profileBG
+	width: 100%
+	height: 85%
+	top: 50px
+	right: 0
+	position: absolute
+	display: none
+	opacity: 0
+	background-color: $white
+	+transition-default
+
+.profileToggled
+	+menu-overlay(1)
+
+.profileToggledBG
+	+menu-overlay(0.9)
+
+// BURGER MENU
+
+#navToggle
+	position: fixed
+	top: 13px
+	right: 13px
+	padding: 10px 30px 10px 0px
+	z-index: 15
+
+#navToggle span, #navToggle span:before, #navToggle span:after
+	height: 4px
+	width: 30px
+	background: $white
+	position: absolute
+	display: block
+	content: ''
+	+transition-default
+
+#navToggle
+	span:before
+		top: -10px
+	span:after
+		bottom: -10px	
+
+#navToggle.active
+	span
+		background-color: $white
+		background-color: transparent
+
+#navToggle.active span:before, #navToggle.active span:after
+	background-color: $white
+	top: 2px
+
+#navToggle.active
+	span:before
+		transform: rotate(45deg)
+	span:after
+		transform: rotate(-45deg)
+
+
+// SECTION
+
+section
+	padding-top: 50px
+	padding-bottom: 30px
+
+	.find-course
+		margin: 30px 0
+
+
+	// Home
+	.herobanner
+		width: 100%
+		display: block
+		margin-bottom: 1em
+		background-color: $black
+
+	#herobanner2
+		display: none
+		background-color: $black
+
+	.bannerOverlay
+		background-color: #222222
+
+	.introduction
+		width: 100%
+		position: absolute
+		text-align: center
+
+		.borderbutton
+			display: inline-block
+			+white-border-button($button-padding-small, 1.5em, uppercase)
+
+		#borderbutton2
+			margin-left: 1.3em
+
+		.h1HeroBanner
+			color: $orange
+			margin: 0
+			font-size: 2.0em
+			margin-top: 10%
+
+		.h1HeroBanner1
+			color: $white
+
+		.textHerobanner
+			display: none
+
+	.buttonDiv
+		width: 100%
+		text-align: center
+
+	.orange-btn
+		+standard-button($button-padding-big, 1.5em, $orange)
+
+
+	// COURSES
+	.courseContainer
+		width: 96%
+		margin: 5% 0
+		padding: 2%
+		display: inline-block
+		background-color: $blue
+
+		.senseiName
+			font-size: 1.1em
+			color: $turquoise
+
+		.course-description
+			margin-top: 20px
+			height: 80px
+			color: white
+
+	.blue-btn
+		margin-top: 10px
+		float: right
+		+standard-button($button-padding-small, 1.2em, #ff9460)	
+	
+	.course-list2
+		width: 100%
+		display: block
+
+
+
+	// PROFILE
+	.profilecontainer
+		margin-top: 50px
+		margin-left: 2%
+		width: 98%
+		display: inline-block
+
+		.profilImage
+			margin: 2% 3% 0 0
+			float: left
+			width: 20%
+			padding: 1%
+			background-color: #ffffff
+			border: 2px solid #eeeeee
+
+		.profileInfo
+			width: 95%
+
+		h1
+			margin: 0
+			text-align: left
+			color: $orange
+
+		.statusName
+			margin-bottom: 40px
+
+		p
+			margin-bottom: 20px
+
+			span
+				font-family: $head-font
+				font-size: 1.2em
+				color: $orange
+
+	.h2courselist
+		margin-top: 6%
+		margin-left: 2%
+		color: $orange
+	
+	.button-course
+		float: right
+
+	.edit-btn
+		+standard-button($button-padding-small, 0.9em, $turquoise)
+
+
+	// Forms
+	.formDiv
+		width: 75%
+		margin: 0 12.5%
+		text-align: center
+
+		label
+			width: 100%
+			font-size: 1.5em
+
+		.formInput, input[type="date"]
+			width: 100%
+			height: 50px
+			margin: 10px 0 40px 0
+			font-family: $main-font
+			font-size: 1.5em
+			font-weight: $main-font-weight
+
+		.formInputSmallWrapper
+			:first-child
+				margin-right: 12%
+			.formInputSmall
+				width: 48%
+				float: left
+
+		.inputTextBox
+			@extend .formInput
+			height: 200px
+
+		.goBackLink
+			text-decoration: underline
+	
+
+	
+	// ADMIN
+	table
+		width: 80%
+		margin-left: 10%
+
+		tr
+			width: 80%
+
+			.big-td
+				width: 25%
+
+			.small-td
+				width: 15%
+				text-align: center
+
+
+
+
+// MEDIA QUERIES
+@media screen and (min-width: 410px)
+	header
+		.navigation
+			.search-icon
+				display: block
+
+			.login-btn
+				display: block
+
+			.smartAuthWidget
+				.user-icon
+					margin-right: 55px
+
+@media screen and (min-width: 700px)
+
+	section
+	
+		// Forms
+		.formDiv
+			width: 50%
+			margin: 0 25%
+			text-align: center
+
+			label
+				font-size: 1.3em
+
+			.formInput, input[type="date"]
+				height: 30px
+				font-size: 1.3em
+
+			.inputTextBox
+				height: 200px
+
+		.course-list-container
+			margin-left: 1.5%
+
+			.courseContainer
+				width: 43%
+				margin: 1% 1%
+				float: left
+
+		.profilecourses
+			.course-list
+				width: 45%
+				margin: 2% 2%
+				float: left
+
+			.courseContainer
+				width: 96%
+				margin: 5% 0
+				padding: 4%
+				display: inline-block
+				background-color: $blue
+
+@media screen and (min-width: 960px)
+
+	section
+		#herobanner1
+			display: none		
+
+		#herobanner2
+			width: 100%
+			display: block
+			background-color: #000000
+
+		// Forms
+		.formDiv
+			width: 40%
+			margin: 0 30%
+			text-align: center
+
+		
+
+@media screen and (min-width: 1200px)
+	section
+		// Forms
+		.formDiv
+			width: 30%
+			margin: 0 40%
+			text-align: center
+
+			label
+				font-size: 1.3em
+
+			.formInput, input[type="date"]
+				height: 30px
+				font-size: 1.3em
+
+			.inputTextBox
+				height: 200px
+
+		.introduction
+			width: 32%
+			position: absolute
+			text-align: left
+			float: left
+			margin-left: 10%
+			margin-top: 6%
+
+			p
+				color: $white
+				font-weight: $header-font-weight
+
+			.textHerobanner
+				margin-bottom: 1em
+				display: block
+
+		.h1HeroBanner
+			color: $orange
+			text-align: left
+			margin: 0
+			margin-bottom: 0.5em
+
+		.h1HeroBanner1
+			color: $white
+			font-size: 2em
+
+		.courseContainer
+			width: 27%
+			margin: 1% 1%
+			float: left
+
+		.profilecontainer
+			width: 88%
+			margin-left: 6%
+
+		.profilecourses
+			.course-list
+				width: 38%
+				margin: 2% 5%
+				float: left
+
+			.courseContainer
+				width: 100%
+				margin: 5% 0
+				padding: 4%
+				display: inline-block
+				background-color: $blue	

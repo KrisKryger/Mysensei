@@ -1,0 +1,616 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,700);
+html, body {
+  height: 100%; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, section h3, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a, a:visited {
+  text-decoration: none;
+  color: #000; }
+
+@font-face {
+  font-family: FingerPaint;
+  src: url(../fonts/Logo_Font_FingerpaintRegular.ttf); }
+body {
+  background-color: #f8f8f8;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.5em; }
+
+header {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  background-color: #177474;
+  z-index: 2; }
+  header .logo img {
+    max-width: 100%;
+    width: 180px;
+    margin: 10px 0 0 10px; }
+  header .navigation .search-icon {
+    max-width: 100%;
+    width: 30px;
+    top: 10px;
+    right: 70px;
+    position: absolute;
+    display: none; }
+  header .navigation .login-btn {
+    top: 7px;
+    right: 120px;
+    position: absolute;
+    display: none;
+    padding: 4px 10px;
+    font-size: 1.2em;
+    color: #f8f8f8;
+    text-align: center;
+    text-transform: capitalize;
+    border: 2px solid #f8f8f8; }
+    header .navigation .login-btn:hover {
+      color: #222222;
+      background-color: #f8f8f8; }
+  header .navigation .smartAuthWidget .user-icon {
+    max-width: 100%;
+    width: 30px;
+    top: 10px;
+    right: 70px;
+    position: absolute;
+    z-index: 25; }
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -2.6em; }
+
+footer .push {
+  height: 3em; }
+
+footer {
+  width: 100%;
+  padding: 10px 0;
+  display: inline-block;
+  color: #f8f8f8;
+  text-align: center;
+  background-color: #177474; }
+
+h1 {
+  font-family: "FingerPaint";
+  font-weight: 700;
+  font-size: 2.5em;
+  line-height: 1.5em;
+  margin: 50px 0;
+  text-align: center;
+  text-transform: uppercase; }
+
+h2, section h3 {
+  width: 100%;
+  font-family: "FingerPaint";
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: #222222;
+  line-height: 1.5em;
+  display: inline-block; }
+
+.redirectDiv {
+  margin-bottom: 10px;
+  text-align: center; }
+
+nav {
+  width: 100%;
+  height: 70%;
+  top: 50px;
+  right: 0;
+  position: fixed;
+  display: none;
+  opacity: 0;
+  z-index: 16;
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+  nav ul li {
+    font-size: 25px; }
+    nav ul li a {
+      display: inline-block;
+      padding: 30px 0;
+      width: 100%; }
+  nav ul li:hover {
+    background-color: #ff8144; }
+
+.navBG {
+  width: 100%;
+  height: 100%;
+  top: 50px;
+  right: 0;
+  position: fixed;
+  display: none;
+  opacity: 0;
+  background-color: #f8f8f8;
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+
+.navToggled {
+  padding-top: 3em;
+  text-align: center;
+  display: block;
+  opacity: 1;
+  z-index: 5;
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+
+.navToggledBG {
+  padding-top: 3em;
+  text-align: center;
+  display: block;
+  opacity: 0.9;
+  z-index: 5;
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+
+.profileBG {
+  width: 100%;
+  height: 100%;
+  top: 50px;
+  right: 0;
+  position: fixed;
+  display: none;
+  opacity: 0;
+  background-color: #f8f8f8;
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+
+.profileToggled {
+  padding-top: 3em;
+  text-align: center;
+  display: block;
+  opacity: 1;
+  z-index: 5;
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+
+.profileToggledBG {
+  padding-top: 3em;
+  text-align: center;
+  display: block;
+  opacity: 0.9;
+  z-index: 5;
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+
+#navToggle {
+  position: fixed;
+  top: 13px;
+  right: 13px;
+  padding: 10px 30px 10px 0px;
+  z-index: 15; }
+
+#navToggle span, #navToggle span:before, #navToggle span:after {
+  height: 4px;
+  width: 30px;
+  background: #f8f8f8;
+  position: absolute;
+  display: block;
+  content: "";
+  transition: 1s opacity;
+  -moz-transition: 1s opacity;
+  -o-transition: 1s opacity;
+  -webkit-transition: 1s opacity; }
+
+#navToggle span:before {
+  top: -10px; }
+#navToggle span:after {
+  bottom: -10px; }
+
+#navToggle.active span {
+  background-color: #f8f8f8;
+  background-color: transparent; }
+
+#navToggle.active span:before, #navToggle.active span:after {
+  background-color: #f8f8f8;
+  top: 2px; }
+
+#navToggle.active span:before {
+  transform: rotate(45deg); }
+#navToggle.active span:after {
+  transform: rotate(-45deg); }
+
+section {
+  padding-top: 50px;
+  padding-bottom: 70px; }
+  section .contentContainer {
+    width: 100%;
+    margin: 0;
+    display: inline-block; }
+  section .orange-btn {
+    padding: 15px 30px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #f8f8f8;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ff8144;
+    border: none;
+    cursor: pointer;
+    display: inline-block; }
+    section .orange-btn:visited {
+      color: #f8f8f8; }
+  section .aboutContainer {
+    width: 80%;
+    margin: 0 10%; }
+  section .profilecontainer {
+    width: 92%;
+    margin: 3% 4%;
+    display: inline-block; }
+    section .profilecontainer .profilImage {
+      width: 20%;
+      margin: 0 3% 0 0;
+      padding: 1%;
+      float: left;
+      background-color: #ffffff;
+      border: 2px solid #eeeeee; }
+    section .profilecontainer .profileInfo {
+      width: 95%; }
+    section .profilecontainer h1 {
+      margin: 0;
+      font-size: 1.6em;
+      text-align: left; }
+    section .profilecontainer .statusName {
+      margin-bottom: 40px; }
+    section .profilecontainer p {
+      margin-bottom: 20px; }
+      section .profilecontainer p span {
+        font-family: "FingerPaint";
+        font-size: 1.2em;
+        color: #ff8144; }
+  section h3 {
+    margin-top: 15%;
+    margin-left: 2%;
+    color: #ff8144; }
+  section .course-button {
+    float: right; }
+  section .edit-btn {
+    margin: 0 0 10px 7px;
+    padding: 4px 13px;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8em;
+    font-weight: 300;
+    color: #f8f8f8;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #177474;
+    border: none;
+    cursor: pointer;
+    display: inline-block; }
+    section .edit-btn:visited {
+      color: #f8f8f8; }
+  section .extraOnButton {
+    padding: 7px 17px; }
+  section .search-field h1 {
+    margin-bottom: 20px; }
+  section .search-field .orange-btn {
+    width: 100%;
+    margin: -15px 0 25px;
+    padding: 5px;
+    font-size: 1.5em; }
+  section .courseContainer {
+    width: 96%;
+    margin: 5% 0;
+    padding: 2%;
+    display: inline-block;
+    background-color: #47b7b7; }
+    section .courseContainer .senseiName {
+      font-size: 1.1em;
+      color: #177474; }
+    section .courseContainer .course-description {
+      margin-top: 20px;
+      height: 80px;
+      color: white; }
+  section .read-btn {
+    margin-top: 10px;
+    float: right;
+    padding: 7px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #f8f8f8;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ff8144;
+    border: none;
+    cursor: pointer;
+    display: inline-block; }
+    section .read-btn:visited {
+      color: #f8f8f8; }
+  section .courseInfo {
+    margin: 0 4%; }
+    section .courseInfo .edit-btn {
+      padding: 7px 15px;
+      font-family: "Roboto", sans-serif;
+      font-size: 1.2em;
+      font-weight: 300;
+      color: #f8f8f8;
+      text-align: center;
+      text-transform: uppercase;
+      background-color: #ff8144;
+      border: none;
+      cursor: pointer;
+      display: inline-block; }
+      section .courseInfo .edit-btn:visited {
+        color: #f8f8f8; }
+    section .courseInfo h2, section .courseInfo h3 {
+      margin-bottom: 2%;
+      color: #ff8144; }
+  section .profile-btn {
+    text-align: center;
+    padding: 7px 15px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #f8f8f8;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ff8144;
+    border: none;
+    cursor: pointer;
+    display: inline-block; }
+    section .profile-btn:visited {
+      color: #f8f8f8; }
+  section .herobanner {
+    width: 100%;
+    display: block;
+    margin-bottom: 1em;
+    background-color: #222222; }
+  section .find-course {
+    margin: 30px 0; }
+  section #herobanner2 {
+    display: none;
+    background-color: #222222; }
+  section .bannerOverlay {
+    background-color: #222222; }
+  section .introduction {
+    width: 100%;
+    position: absolute;
+    text-align: center; }
+    section .introduction .borderbutton {
+      display: inline-block;
+      padding: 7px 15px;
+      font-size: 1.5em;
+      color: #f8f8f8;
+      text-align: center;
+      text-transform: uppercase;
+      border: 2px solid #f8f8f8; }
+      section .introduction .borderbutton:hover {
+        color: #222222;
+        background-color: #f8f8f8; }
+    section .introduction #borderbutton2 {
+      margin-left: 1.3em; }
+    section .introduction .h1HeroBanner {
+      color: #ff8144;
+      margin: 0;
+      font-size: 2em;
+      margin-top: 10%; }
+    section .introduction .h1HeroBanner1 {
+      color: #f8f8f8; }
+    section .introduction .textHerobanner {
+      display: none; }
+  section .buttonDiv {
+    width: 100%;
+    text-align: center; }
+  section .formDiv {
+    width: 75%;
+    margin: 0 12.5%;
+    text-align: center; }
+    section .formDiv label {
+      width: 100%;
+      font-size: 1.5em; }
+    section .formDiv .formInput, section .formDiv .inputTextBox, section .formDiv input[type="date"] {
+      width: 100%;
+      height: 50px;
+      margin: 10px 0 40px 0;
+      font-family: "Roboto", sans-serif;
+      font-size: 1.5em;
+      font-weight: 300; }
+    section .formDiv .formInputSmallWrapper {
+      width: 100%;
+      display: inline-block; }
+      section .formDiv .formInputSmallWrapper .formInputSmall {
+        width: 47%;
+        float: left; }
+      section .formDiv .formInputSmallWrapper .formInputSmall1 {
+        margin-left: 6%; }
+    section .formDiv .inputSpace {
+      padding-top: 4em;
+      border-top: 1px solid #dddddd; }
+    section .formDiv .inputSpaceBottom {
+      padding-bottom: 2em; }
+    section .formDiv .inputTextBox {
+      height: 200px; }
+    section .formDiv p {
+      margin: 1.8em 0; }
+    section .formDiv .goBackLink {
+      text-decoration: underline; }
+  section table {
+    width: 80%;
+    margin-left: 10%; }
+    section table tr {
+      width: 80%; }
+      section table tr .big-td {
+        width: 25%; }
+      section table tr .small-td {
+        width: 15%;
+        text-align: center; }
+
+@media screen and (min-width: 410px) {
+  header .navigation .search-icon {
+    display: block; }
+  header .navigation .login-btn {
+    display: block; }
+  header .navigation .smartAuthWidget .user-icon {
+    margin-right: 55px; } }
+@media screen and (min-width: 700px) {
+  section .contentContainer {
+    width: 96%;
+    padding: 0 2%; }
+  section .profilecontainer h1 {
+    font-size: 2.5em; }
+  section .profilecourses .course-list {
+    width: 45%;
+    margin: 2% 2.4%;
+    float: left; }
+  section .profilecourses .courseContainer {
+    width: 90%;
+    margin: 5% 0;
+    padding: 4%; }
+  section .search-field .orange-btn {
+    width: auto;
+    padding: 15px 30px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #f8f8f8;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ff8144;
+    border: none;
+    cursor: pointer;
+    display: inline-block; }
+    section .search-field .orange-btn:visited {
+      color: #f8f8f8; }
+  section .courseContainer {
+    width: 42%;
+    margin: 2% 2%;
+    float: left; }
+  section .introduction {
+    margin-top: 3em; }
+  section .formDiv {
+    width: 55%;
+    margin: 0 22.5%;
+    text-align: center; }
+    section .formDiv label {
+      font-size: 1.3em; }
+    section .formDiv .formInput, section .formDiv .inputTextBox, section .formDiv input[type="date"] {
+      height: 30px;
+      font-size: 1.3em; }
+    section .formDiv .inputTextBox {
+      height: 200px; } }
+@media screen and (min-width: 960px) {
+  section #herobanner1 {
+    display: none; }
+  section #herobanner2 {
+    width: 100%;
+    display: block;
+    background-color: #000000; }
+  section .introduction {
+    margin-top: -3em; }
+  section .formDiv {
+    width: 42%;
+    margin: 0 29%;
+    text-align: center; } }
+@media screen and (min-width: 1200px) {
+  section .contentContainer {
+    width: 90%;
+    padding: 0 5%; }
+  section .profilecourses .course-list {
+    width: 37%;
+    margin: 2% 5.7%; }
+  section .profilecourses .courseContainer {
+    width: 100%;
+    margin: 5% 0; }
+  section .courseContainer {
+    width: 27%;
+    margin: 1% 1%;
+    float: left; }
+  section .introduction {
+    width: 32%;
+    position: absolute;
+    text-align: left;
+    float: left;
+    margin-left: 10%;
+    margin-top: 4%; }
+    section .introduction .h1HeroBanner {
+      color: #ff8144;
+      text-align: left;
+      margin: 0;
+      margin-bottom: 0.5em;
+      margin-top: 0%; }
+    section .introduction .h1HeroBanner1 {
+      color: #f8f8f8;
+      font-size: 2em; }
+    section .introduction p {
+      color: #f8f8f8;
+      font-weight: 700; }
+    section .introduction .textHerobanner {
+      margin-bottom: 1em;
+      display: block; }
+  section .formDiv {
+    width: 45%;
+    margin: 0 27.5%;
+    text-align: center; }
+    section .formDiv label {
+      font-size: 1.3em; }
+    section .formDiv .formInput, section .formDiv .inputTextBox, section .formDiv input[type="date"] {
+      height: 30px;
+      font-size: 1.3em; }
+    section .formDiv .inputTextBox {
+      height: 200px; } }
+@media screen and (min-width: 1500px) {
+  section .contentContainer {
+    width: 80%;
+    padding: 0 10%; } }
+
+/*# sourceMappingURL=main.css.map */

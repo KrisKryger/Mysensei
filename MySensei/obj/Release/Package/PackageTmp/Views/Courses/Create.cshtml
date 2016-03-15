@@ -1,0 +1,29 @@
+﻿@model MySensei.Models.Course
+@{ ViewBag.Title = "Opret Kursus";}
+<div class="formDiv">
+    <h1>Opret Kursus</h1>
+    @Html.ValidationSummary(false)
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <label>Titel</label><br />
+            @Html.EditorFor(x => x.Title, new { htmlAttributes = new { @class = "formInput" } })
+        </div>
+        <div>
+            <label>Beskrivelse</label><br />
+            @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "inputTextBox" } })
+        </div>
+        <div>
+            <label>Års Erfaring</label><br />
+            @Html.EditorFor(x => x.Experience, new { htmlAttributes = new { @class = "formInput" } })
+        </div>
+        <div>
+            <label>Status</label><br />
+            @Html.DropDownList("CourseStatusId", (SelectList) ViewBag.CourseStatusId, null, new { @class = "formInput" })
+        </div>
+
+        <button type="submit" class="orange-btn">Opret</button>
+        <p>eller</p> @Html.ActionLink("Gå tilbage til profil", "Index", "Account", null, new { @class = "goBackLink" })
+    }
+</div>

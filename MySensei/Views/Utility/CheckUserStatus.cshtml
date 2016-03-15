@@ -1,0 +1,13 @@
+﻿
+@if (ViewBag.IsSensei && ViewBag.IsStudent)
+{
+    <p class="statusName">@ViewBag.Target er Sensei og Elev</p>
+}
+else if (ViewBag.IsSensei)
+{
+    <p class="statusName">@ViewBag.Target er Sensei</p>
+}
+else if (ViewBag.IsStudent)
+{
+    <p class="statusName">@ViewBag.Target er Elev</p>
+}

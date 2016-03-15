@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - MySensei</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/Content/images/favicon.ico")" />
+    <!-- Stylesheet -->
+    <link href="~/Content/css/main.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Script -->
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header with Logo and Search -->
+        @Html.Partial("_Header")
+
+        <!-- Section where content goes -->
+        <section>
+            @RenderBody()
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer>MySensei &copy; Copyright 2015</footer>
+
+    <div class="profileBG"></div>
+
+    <a id="navToggle" href="#"><span></span></a>
+    <div class="navBG"></div>
+    <nav class="navDiv">
+        <ul>
+            <li><a href="@Url.Action("", "Home")">Forside</a></li>
+            <li><a href="@Url.Action("", "Catalog")">Kurser</a></li>
+            <li><a href="@Url.Action("", "About")">Om MySensei</a></li>
+        </ul>
+    </nav>
+
+    <div class="profileBG"></div>
+    <nav class="profileDiv">
+        <ul>
+            <li><a href="@Url.Action("", "Account")">Profil</a></li>
+                        @if (this.User.IsInRole("Administrators"))
+            {
+                    <li><a href="@Url.Action("", "Admin")">Admin panel</a></li>
+            }
+            <li><a href="@Url.Action("/Create", "Courses")">Opret Kursus</a></li>
+            <li><a href="@Url.Action("Edit", "Account")">Redigér Brugerinfo</a></li>
+            <li><a href="@Url.Action("/Logout", "Account")">Log Ud</a></li>
+        </ul>
+    </nav>
+
+    <!-- Javascript and jQuery -->
+    <script src="~/Content/js/main.js"></script>
+</body>
+</html>

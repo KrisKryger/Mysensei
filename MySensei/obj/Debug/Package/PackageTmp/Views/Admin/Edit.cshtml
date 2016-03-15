@@ -1,0 +1,53 @@
+﻿@model MySensei.Models.AppUser
+@{ ViewBag.Title = "Rediger bruger"; }
+<div class="contentContainer">
+    <div class="formDiv">
+        <h1>Rediger bruger</h1>
+        @Html.ValidationSummary(false)
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(x => x.Id)
+            @Html.AntiForgeryToken()
+            <div>
+                <label>Password</label>
+                <input name="password" type="password" class="formInput" />
+            </div>
+            <div>
+                <label>Gentag Password</label>
+                <input name="repeatPassword" type="password" class="formInput" />
+            </div>
+            <div class="inputSpace">
+                <label>Profilbeskrivelse</label><br />
+                @Html.EditorFor(x => x.Description, new { htmlAttributes = new { @class = "inputTextBox" } })
+            </div>
+            <div class="inputSpace">
+                <label>Fulde navn</label><br />
+                @Html.TextBoxFor(x => x.UserName, new { @class = "formInput" })
+            </div>
+            <div>
+                <label>Adresse</label><br />
+                @Html.TextBoxFor(x => x.Street, new { @class = "formInput" })
+            </div>
+            <div class="formInputSmallWrapper">
+                <div class="formInputSmall">
+                    <label>Postnummer</label><br />
+                    @Html.TextBoxFor(x => x.Zipcode, new { @class = "formInput" })
+                </div>
+                <div class="formInputSmall formInputSmall1">
+                    <label>By</label><br />
+                    @Html.TextBoxFor(x => x.City, new { @class = "formInput" })
+                </div>
+            </div>
+            <div class="inputSpace">
+                <label>Fødselsdag</label><br />
+                @Html.EditorFor(x => x.BirthDate, new { htmlAttributes = new { @class = "date" } })
+            </div>
+            <div>
+                <label>Telefonnummer</label><br />
+                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "formInput" })
+            </div>
+            <button type="submit" class="orange-btn">Gem</button>
+            <p>eller</p>@Html.ActionLink("Gå tilbage til admin panel", "/", null, new { @class = "goBackLink" })
+        }
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model MySensei.Models.Course
+@if (!ViewBag.IsPrivate)
+{
+        <div class="courseContainer">
+            @if (ViewBag.OwnCourse)
+            {
+
+                    <div class="course-button">
+                        @Html.ActionLink("Rediger", "Edit", "Courses", new { id = Model.CourseId }, new { @class = "edit-btn" })
+                        @Html.ActionLink("Slet", "Delete", "Courses", new { id = Model.CourseId }, new { @class = "edit-btn" })
+                    </div>
+            }
+
+            @if (ViewBag.LoggedIn && ViewBag.JoinLeaveButton)
+            {
+                <div class="course-button">
+                    @Html.Action("GenerateJoinLeaveCourseButton", "Utility", new { course = Model, OwnCourse = true })
+                </div>
+            }
+            else if (!ViewBag.LoggedIn && ViewBag.JoinLeaveButton)
+            {
+                <div class="course-button">
+                    
+                </div>
+            }
+
+            <h2>@Html.ActionLink((Model.Title.Length > 20 ? Model.Title.Substring(0, 20) + "..." : Model.Title), "Show", "Courses", new { id = Model.CourseId }, null)</h2>
+            <p>
+                @if (!ViewBag.OwnCourse)
+                {
+                    @Html.ActionLink("Af Sensei " + Model.AppUser.UserName, "Show", "Account", new { id = Model.AppUser.Id }, new { @class = "senseiName" })<br />
+                }
+                else
+                {
+                    @Html.ActionLink("Af dig", "", "Account", null, new { @class = "senseiName" })<br />
+                }
+            </p>
+            <p class="course-description">
+                @Model.Description.Substring(0, 100)...
+            </p>
+                @Html.ActionLink("Læs mere", "Show", "Courses", new { id = Model.CourseId }, new { @class = "read-btn" })
+        </div>
+}

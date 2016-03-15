@@ -1,0 +1,20 @@
+﻿@model MySensei.Models.AppUser
+@{
+    ViewBag.Title = "Slet bruger";
+}
+
+<h1>Slet bruger</h1>
+<div class="contentContainer">
+    <div class="formDiv">
+        <h2>Er du sikker på at du vil slette: @Model.UserName og alle deres kurser</h2>
+        @using (Html.BeginForm("Delete", "Admin", new { id = Model.Id }))
+        {
+            @Html.AntiForgeryToken()
+            <button class="orange-btn"
+                    type="submit">
+                Slet
+            </button>
+            <p>eller</p> @Html.ActionLink("Gå tilbage til admin panel", "", "Admin", null, new { @class = "goBackLink" })
+        }
+    </div>
+</div>

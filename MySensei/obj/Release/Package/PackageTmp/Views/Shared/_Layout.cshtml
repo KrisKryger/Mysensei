@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - MySensei</title>
+
+    <!-- Stylesheet -->
+    <link href="~/Content/css/main.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Script -->
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+
+    <!-- Header with Logo and Search -->
+    @Html.Partial("_Header")
+
+    <!-- Section where content goes -->
+    <section>
+        @RenderBody()
+    </section>
+
+    <!-- Footer -->
+    <footer>MySensei &copy; Copyright 2015</footer>
+
+    <div class="profileBG"></div>
+
+    <a id="navToggle" href="#"><span></span></a>
+    <div class="navBG"></div>
+    <nav class="navDiv">
+        <ul>
+            <a href="@Url.Action("", "Home")"><li>Forside</li></a>
+            <a href="@Url.Action("", "Catalog")"><li>Kurser</li></a>
+            <a href="@Url.Action("", "About")"><li>Om MySensei</li></a>
+        </ul>
+    </nav>
+
+    <div class="profileBG"></div>
+    <nav class="profileDiv">
+        <ul>
+            <a href="@Url.Action("", "Account")"><li>Profil</li></a>
+            <a href="@Url.Action("/Create", "Courses")"><li>Opret Kursus</li></a>
+            <a href="@Url.Action("Edit", "Account")"><li>Redigér Brugerinfo</li></a>
+            <a href="@Url.Action("/Logout", "Account")"><li>Log Ud</li></a>
+        </ul>
+    </nav>
+
+    <!-- Javascript and jQuery -->
+    <script src="~/Content/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = ViewBag.Course.Title;
+}
+<div class="contentContainer">
+    <h1>@ViewBag.Course.Title</h1>
+    <div class="courseInfo">
+        <h2>Beskrivelse af kursus</h2>
+        <p>@ViewBag.Course.Description</p><br/>
+        @Html.Action("GenerateJoinLeaveCourseButton", "Utility", new { course = ViewBag.Course})
+        
+    </div>
+    <div class="profilecontainer">
+        <h2>Hvem er Sensei</h2>
+        <img class="profilImage" src="~/Content/images/avatar-icon.png" />
+        <div class="profileInfo">
+            <p><span>Navn:</span> @ViewBag.Course.AppUser.UserName</p>
+            <p><span>Erfaring:</span> @ViewBag.Course.Experience</p>
+            <p><span>By:</span> @ViewBag.Course.AppUser.City</p>
+            <p><span>Bio:</span> @ViewBag.Course.AppUser.Description</p>
+            @Html.ActionLink("Se profil", "Show", "Account", new { id = ViewBag.Course.AppUser.Id }, new { @class = "profile-btn" })
+        </div>
+    </div>
+</div>

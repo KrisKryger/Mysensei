@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="MySensei-MEK" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\emil\\documents\\visual\ studio\ 2015\\Projects\\MySensei\\MySensei\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\emil\\documents\\visual\ studio\ 2015\\Projects\\MySensei\\MySensei\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="IdentityDb-Web.config Connection String" description="" value="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=IdentityDb; Integrated Security=True; Connect Timeout=15; Encrypt=False; TrustServerCertificate=False; MultipleActiveResultSets=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\emil\\documents\\visual\ studio\ 2015\\Projects\\MySensei\\MySensei\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='IdentityDb']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = ViewBag.Course.Title;
+}
+
+<h1>@ViewBag.Course.Title</h1>
+<div>
+    <p>
+        <h3>Sensei:</h3>
+        Navn: @ViewBag.Course.AppUser.UserName<br />
+        Erfaring: @ViewBag.Course.Experience<br />
+        By: @ViewBag.Course.AppUser.City<br />
+        @Html.ActionLink("Se profil", "Show", "Account", new { id = ViewBag.Course.AppUser.Id }, new { @class = "blue-btn" })
+    </p>
+    <p>
+        <h4>Beskrivelse</h4>
+        @ViewBag.Course.Description
+    </p>
+    @Html.Action("GenerateJoinLeaveCourseButton", "Utility", new { course = ViewBag.Course });
+</div>

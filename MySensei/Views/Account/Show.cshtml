@@ -1,0 +1,46 @@
+﻿@using MySensei.Models
+@model IEnumerable<Course>
+@{
+    ViewBag.Title = ViewBag.User.UserName;
+}
+<div class="contentContainer">
+    <div class="profilecontainer">
+        <img class="profilImage" src="~/Content/images/avatar-icon.png" />
+        <div class="profileInfo">
+            <h1>@ViewBag.User.UserName</h1>
+            @Html.Action("CheckUserStatus", "Utility", new { appUser = ViewBag.User, Self = false })
+            <p><span>By:</span> @ViewBag.User.City</p>
+            <p><span>Bio:</span> @ViewBag.User.Description</p>
+        </div>
+    </div>
+    <div class="profilecourses">
+        <div class="course-list">
+            <h3>Kurser lavet af @ViewBag.User.UserName</h3>
+            @if (Model.Count() == 0)
+            {
+                <p>@ViewBag.User.UserName har lavet nogen kurser endnu</p>
+            }
+            else
+            {
+                foreach (Course course in Model)
+                {
+                    @Html.Action("GenerateCoursePreview", "Utility", new { course = course, JoinLeaveButton = true });
+                }
+            }
+        </div>
+        <div class="course-list">
+            <h3>Kurser @ViewBag.User.UserName er med i</h3>
+            @if (ViewBag.joinedCoursesCount == 0)
+            {
+                <p>@ViewBag.User.UserName er ikke med i nogen kurser endnu</p>
+            }
+            else
+            {
+                foreach (Course course in ViewBag.JoinedCourses)
+                {
+                    @Html.Action("GenerateCoursePreview", "Utility", new { course = course, JoinLeaveButton = true });
+                }
+            }
+        </div>
+    </div>
+</div>

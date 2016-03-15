@@ -1,0 +1,31 @@
+﻿@using MySensei.Models
+@model IEnumerable<Course>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="introduction">
+        <h1 class="h1HeroBanner">Velkommen til</br><span class="h1HeroBanner1">MySensei</span></h1>
+        <p class="textHerobanner">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+        <div>
+            @Html.ActionLink("Tilmeld", "Signup", "Account", new { area = "" }, new { @class = "borderbutton" })
+            @Html.ActionLink("Log Ind", "Login", "Account", new { area = "" }, new { @class = "borderbutton", @id = "borderbutton2" })
+        </div>
+</div>
+<img class="herobanner" id="herobanner1" src="~/Content/images/hero-banner-mobil.jpg" />
+<img class="herobanner" id="herobanner2" src="~/Content/images/hero-banner.jpg" />
+<div class="buttonDiv">
+    @Html.ActionLink("Find Kursus", "", "Catalog", new { area = "" }, new { @class = "orange-btn find-course" })
+</div>
+<div class="course-list-container">
+    @if (Model.Count() == 0)
+    {
+        <p>No Courses</p>
+    }
+    else
+    {
+        foreach (Course course in Model)
+        {
+            @Html.Action("GenerateCoursePreview", "Utility", new { course = course });
+        }
+    }
+</div>

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Succes";
+}
+
+<h1>Succes!</h1>
+<div class="contentContainer">
+    <p class="redirectDiv">@ViewBag.msg og du videresendes efter 3 sec</p>
+    @{ 
+        string controller = ViewBag.targetcontroller;
+        string action = ViewBag.targetaction;
+    }
+    <p class="redirectDiv">@Html.ActionLink("Hvis dette ikke skulle ske kan du trykke her", action, controller, null, new { @class = "goBackLink" })</p>
+
+    <script>
+        window.setTimeout(function () {
+
+            window.location.href = '@Url.Action(ViewBag.targetaction, ViewBag.targetcontroller)';
+
+        }, 3000);
+    </script>
+</div>

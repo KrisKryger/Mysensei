@@ -1,0 +1,33 @@
+﻿@using MySensei.Models
+@model IEnumerable<Course>
+@{
+    ViewBag.Title = "Søg på Kurser";
+}
+<div class="contentContainer">
+    <div class="search-field">
+        <h1>Søg på Kurser</h1>
+        <div class="formDiv">
+            <form action="/Catalog" method="get">
+                <div>
+                    <input class="formInput" name="SearchQuery" type="text" value="@ViewBag.SQ" />
+                    <button class="orange-btn" type="submit">Søg</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="course-list-container">
+
+
+        @if (Model.Count() == 0)
+        {
+            <p>Ingen kurser matcher din søgning</p>
+        }
+        else
+        {
+            foreach (Course course in Model)
+            {
+                @Html.Action("GenerateCoursePreview", "Utility", new { course = course });
+            }
+        }
+    </div>
+</div>

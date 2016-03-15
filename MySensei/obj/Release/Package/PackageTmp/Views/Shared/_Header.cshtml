@@ -1,0 +1,13 @@
+﻿<header>
+    <div class="logo">
+        <a href="@Url.Action( "", "Home")">
+            <img src="@Url.Content("~/Content/images/mysensei-logo.png")" alt="mysensei"/>
+        </a>
+    </div>
+    <div class="navigation">
+        <a href="@Url.Action( "", "Catalog")">
+            <img class="search-icon" src="@Url.Content("~/Content/images/search-icon.png")"  alt="Search" />
+        </a>
+        @Html.Partial("_SmartAuthWidget")
+    </div>
+</header>

@@ -1,0 +1,34 @@
+﻿@using MySensei.Models
+@model IEnumerable<Course>
+@{
+    ViewBag.Title = "Forside";
+}
+
+<div class="introduction">
+        <h1 class="h1HeroBanner">Velkommen til<br/><span class="h1HeroBanner1">MySensei</span></h1>
+        <p class="textHerobanner">Hos MySensei finder du en verden af kurser. Her kan du helt sikkert finde noget som vil interesse dig!</p>
+        <div>
+            @Html.ActionLink("Tilmeld", "Signup", "Account", new { area = "" }, new { @class = "borderbutton" })
+            @Html.ActionLink("Log Ind", "Login", "Account", new { area = "" }, new { @class = "borderbutton", @id = "borderbutton2" })
+        </div>
+</div>
+<img class="herobanner" id="herobanner1" src="~/Content/images/hero-banner-mobil-mork.jpg" alt="Leder du efter en underviser?" />
+<img class="herobanner" id="herobanner2" src="~/Content/images/hero-banner.jpg" alt="Leder du efter en underviser?" />
+<div class="buttonDiv">
+    @Html.ActionLink("Find Kursus", "", "Catalog", new { area = "" }, new { @class = "orange-btn find-course" })
+</div>
+<div class="contentContainer">
+    <div class="course-list-container">
+        @if (Model.Count() == 0)
+        {
+            <p>Der findes ingen kurser endnu</p>
+        }
+        else
+        {
+            foreach (Course course in Model)
+            {
+                @Html.Action("GenerateCoursePreview", "Utility", new { course = course });
+            }
+        }
+    </div>
+</div>
